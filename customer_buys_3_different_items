@@ -1,0 +1,15 @@
+-- pelanggan membeli 3 barang yang berbeda.
+
+SELECT
+    Pelanggan.nama_pelanggan,
+    Barang.nama_barang,
+    Barang.harga,
+    detail_transaksi.jumlah_barang
+FROM
+    Pelanggan
+JOIN
+    Transaksi ON Pelanggan.id_pelanggan = Transaksi.id_pelanggan
+JOIN
+    detail_transaksi ON Transaksi.id_transaksi = detail_transaksi.id_transaksi
+JOIN
+    Barang ON detail_transaksi.id_barang = Barang.id_barang;

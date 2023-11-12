@@ -1,0 +1,14 @@
+-- Melihat 3 produk yang paling sering dibeli oleh pelanggan.
+
+SELECT
+    Barang.nama_barang,
+    COUNT(detail_transaksi.id_barang) AS jumlah_pembelian
+FROM
+    Barang
+JOIN
+    detail_transaksi ON Barang.id_barang = detail_transaksi.id_barang
+GROUP BY
+    Barang.nama_barang
+ORDER BY
+    jumlah_pembelian DESC
+LIMIT 3;

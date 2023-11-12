@@ -1,0 +1,13 @@
+-- Nominal rata-rata transaksi yang dilakukan oleh pelanggan dalam 1 bulan terakhir.
+
+SELECT
+    Pelanggan.nama_pelanggan,
+    AVG(Transaksi.total_transaksi) AS rata_rata_transaksi
+FROM
+    Pelanggan
+JOIN
+    Transaksi ON Pelanggan.id_pelanggan = Transaksi.id_pelanggan
+WHERE
+    Transaksi.tanggal_transaksi >= CURDATE() - INTERVAL 1 MONTH
+GROUP BY
+    Pelanggan.nama_pelanggan;

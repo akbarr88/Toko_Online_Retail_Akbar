@@ -1,0 +1,12 @@
+-- Melihat Kategori barang yang paling banyak barangnya.
+
+SELECT
+    Barang.nama_barang,
+    SUM(Barang.stok_barang) AS total_stok
+FROM
+    Barang
+GROUP BY
+    Barang.nama_barang
+ORDER BY
+    total_stok DESC
+LIMIT 1;
